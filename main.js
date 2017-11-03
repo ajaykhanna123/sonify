@@ -120,6 +120,7 @@ window.onload=function(){
     }
 
   ]
+  changeCurrentSongDetails(songs[0]);
   function changeCurrentSongDetails(songObj) {
     $('.current-song-image').attr('src','img/' + songObj.image)
     $('.current-song-name').text(songObj.name)
