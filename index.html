@@ -9,201 +9,79 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <section class="welcome-screen hidden">
-            <h1> Welcome to Songify </h1>
-            <h3> Enter name to access your account </h3>
-            <div class="input-wrapper">
-                <input type="text" placeholder="Name" id="name-input">
-                <button> Go </button>
-            </div>
-        </section>
-        <div class="main">
-            <header>
-                <div class="right floated user-name"> </div>
-            </header>
-            <section class="content">
-
-                <audio src="song1.mp3"></audio>
-                <div class="list-headers">
-        <div> Title </div>
-        <div> Artist </div>
-        <div> Album </div>
-        <div> Duration </div>
-        </div>
-        <div class="song-list">
-          <div class="song" id="song1">
-            <span  class="song-name"></span>
-          <span class="song-artist"></span>
-          <span class="song-album"></span>
-          <span class="song-length"></span>
-          </div>
-          <div class="song" id="song2">
-            <span  class="song-name"></span>
-          </div>
-          <div class="song"id="song3">
-            <span  class="song-name"></span>
-          </div>
-          <div class="song" id="song4">
-            <span id="song4" class="song-name"></span>
-          </div>
-        </div>
-            </section>
-            <footer>
-                <div class="controls">
-                    <div class="player-buttons">
-                        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="progress-wrapper">
-                        <span class="time-elapsed"> </span>
-                        <div class="player-progress">
-                            <div class="progress-filled"> </div>
-                        </div>
-                        <span class="song-duration"></span>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </div>
+  <div class="wrapper">
+     <section class="welcome-screen hidden">
+         <h1> Welcome to Songify </h1>
+         <h3> Enter name to access your account </h3>
+         <div class="input-wrapper">
+             <input type="text" placeholder="Name" id="name-input">
+             <button> Go </button>
+         </div>
+     </section>
+     <div class="main">
+         <header>
+             <div class="right floated user-name"> </div>
+         </header>
+         <section class="content">
+             <audio src="song.mp3"></audio>
+             <div class="list-headers">
+     <div> Title </div>
+     <div> Artist </div>
+     <div> Album </div>
+     <div> Duration </div>
+     </div>
+     <div class="song-list">
+       <div class="song" id="song1">
+       <span class="song-name"></span>
+       <span class="song-artist"></span>
+       <span class="song-album"></span>
+       <span class="song-length"></span>
+       </div>
+       <div class="song" id="song2">
+       <span class="song-name"></span>
+       <span class="song-artist"></span>
+       <span class="song-album"></span>
+       <span class="song-length"></span>
+       </div>
+       <div class="song" id="song3">
+       <span class="song-name"></span>
+       <span class="song-artist"></span>
+       <span class="song-album"></span>
+       <span class="song-length"></span>
+       </div>
+       <div class="song" id="song4">
+       <span class="song-name"></span>
+       <span class="song-artist"></span>
+       <span class="song-album"></span>
+       <span class="song-length"></span>
+       </div>
+       <div class="song" id="song5">
+       <span class="song-name"></span>
+       <span class="song-artist"></span>
+       <span class="song-album"></span>
+       <span class="song-length"></span>
+       </div>
+     </div>
+         </section>
+         <footer>
+             <div class="controls">
+                 <div class="player-buttons">
+                     <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                 </div>
+                 <div class="progress-wrapper">
+                     <span class="time-elapsed"> </span>
+                     <div class="player-progress">
+                         <div class="progress-filled"> </div>
+                     </div>
+                     <span class="song-duration"></span>
+                 </div>
+             </div>
+         </footer>
+     </div>
+ </div>
     <script src="jquery.js">
     </script>
-    <script>
-
-    $('.welcome-screen button').on('click', function() {
-        var name = $('#name-input').val();
-        if (name.length > 2) {
-            var message = "Welcome, " + name;
-            $('.main .user-name').text(message);
-            $('.welcome-screen').addClass('hidden');
-            $('.main').removeClass('hidden');
-        } else {
-            $('#name-input').addClass('error');
-        }
-    });
-    function togglesong()
-    {
-      var song=document.querySelector("audio");
-      if(song.paused==true)
-      {
-        song.play();
-        $(".play-icon").removeClass("fa-play-circle").addClass("fa-pause-circle");
-      }
-      else
-       {
-         song.pause();
-         $(".play-icon").removeClass("fa-pause-circle").addClass("fa-play-circle");
-       }
-    }
-    function updateCurrentTime()
-    {
-      var song=document.querySelector('audio');
-      var currentTime=Math.floor(song.currentTime);
-      currentTime=fancyTimeFormat(currentTime);
-      var duration=Math.floor(song.duration);
-      duration=fancyTimeFormat(duration);
-      $('.time-elapsed').text(currentTime);
-      $('.song-duration').text(duration);
-    }
-    function fancyTimeFormat(time)
-  {
-      // Hours, minutes and seconds
-      var hrs = ~~(time / 3600);
-      var mins = ~~((time % 3600) / 60);
-      var secs = time % 60;
-
-      // Output like "1:01" or "4:03:59" or "123:03:59"
-      var ret = "";
-
-      if (hrs > 0) {
-          ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-      }
-
-      ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-      ret += "" + secs;
-      return ret;
-  }
-    //All functions     end here............................
-
-    $(".play-icon").on('click',function(){
-      togglesong();
-    });
-    $("body").on('keypress',function(event){
-      if(event.keyCode==32){
-        togglesong();
-      }
-    });
-    var song=document.querySelector('audio');
-
-    var artist="Amber Oti";
-    var album="Single-Track";
-    var duration=Math.floor(song.duration);
-    duration=fancyTimeFormat(duration);
-    window.onload=function(){
-      var songlist=['Ik supna hai mera','Excuses','Putt jatt da','Big Dreams'];
-      $('#song1 .song-name').text(songlist[0]);
-      $('#song2 .song-name').text(songlist[1]);
-      $('#song3 .song-name').text(songlist[2]);
-      $('#song4 .song-name').text(songlist[3]);
-      $('.song-artist').text(artist);
-      $('.song-album').text(album);
-      $('.song-length').text(duration);
-      var filenames=["song1.mp3","song2.mp3","song3.mp3","song4.mp3"];
-      $('#song1').click(function(){
-        var audio=document.querySelector('audio');
-        var currentsong=audio.src;
-      if(currentsong.search(filenames[0])!=-1){
-          togglesong();
-        }
-        else{
-          audio.src=filenames[0];
-          togglesong();
-        }
-      });
-      $('#song2').click(function(){
-        var audio=document.querySelector('audio');
-        var currentsong=audio.src;
-        if(currentsong.search(filenames[1])!=-1){
-          togglesong();
-        }
-        else{
-          audio.src=filenames[1];
-          togglesong();
-        }
-
-
-      });
-      $('#song3').click(function(){
-        var audio=document.querySelector('audio');
-        var currentsong=audio.src;
-        if(currentsong.search(filenames[2])!=-1){
-          togglesong();
-        }
-        else{
-          audio.src=filenames[2];
-          togglesong();
-        }
-      });
-      $('#song4').click(function(){
-        var audio=document.querySelector('audio');
-        var currentsong=audio.src;
-        if(currentsong.search(filenames[3])!=-1){
-          togglesong();
-        }
-        else{
-          audio.src=filenames[3];
-          togglesong();
-        }
-      });
-      setInterval(function()
-      {
-        updateCurrentTime();
-      },1000);
-
-    }
-
-
-
-
+    <script src="main.js">
     </script>
 </body>
 
