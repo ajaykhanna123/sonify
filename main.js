@@ -287,6 +287,16 @@ window.onload=function(){
         'fileName': 'song27.mp3',
         'image':'27.jpg'
     }
+    ,
+    {
+        'name': 'Cant Forget You - Arjun (DjPunjab.Com).mp3',
+        'artist': 'Arjun singh',
+        'album': 'Single track',
+        'duration': '4:50',
+        'fileName': 'Cant Forget You - Arjun (DjPunjab.Com).mp3',
+        'image':'27.jpg'
+    }
+               
 
   ]
 
