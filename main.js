@@ -335,6 +335,6 @@ window.onload=function(){
     addSongNameClickEvent(obj,i+1);
 }
 $('#songs').dataTable({
-       'paging'=true
+       "pagingType": "full_numbers"
   });
 }
