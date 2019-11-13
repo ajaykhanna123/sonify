@@ -335,6 +335,8 @@ window.onload=function(){
     addSongNameClickEvent(obj,i+1);
 }
 $('#songs').DataTable({
-      
+      "paging":   false,
+        "ordering": false,
+        "info":     false
   });
 }
