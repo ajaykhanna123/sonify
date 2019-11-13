@@ -278,15 +278,8 @@ window.onload=function(){
         'fileName': 'song26.mp3',
         'image':'6.jpg'
     }
-    ,
-    {
-        'name': 'IK vaari aa',
-        'artist': 'Arjit Singh',
-        'album': 'Raabta',
-        'duration': '4:02',
-        'fileName': 'song27.mp3',
-        'image':'27.jpg'
-    }
+    
+    
     ,
     {
         'name': 'Cant Forget You - Arjun (DjPunjab.Com).mp3',
