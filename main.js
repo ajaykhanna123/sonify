@@ -334,7 +334,7 @@ window.onload=function(){
     song.find('.song-length').text(obj.duration);
     addSongNameClickEvent(obj,i+1);
 }
-$('#songs').DataTable({
+$('#songs').dataTable({
        "columnDefs": [ {
             "searchable": false,
             "orderable": false,
